@@ -21,5 +21,14 @@ def flatten_(leaf):
 def flatten(leaf):
   base = flatten_(leaf)
   base.pop("cactus.next", None)
-  #base.pop("cactus.name", None)
+  base.pop("cactus.name", None)
   return base
+
+# Returns the named dict in the stack of dict.
+def named(leaf, name):
+  if leaf == None:
+    return None
+  if name == leaf.get("cactus.name"):
+    return leaf
+  return named(leaf.get("cactus.next"), name)
+  

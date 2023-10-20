@@ -1,6 +1,6 @@
 import gems.cactus as cactus
 print(cactus.resolve(None, "x"))
-d1 = {"a": 1}
+d1 = {"a": 1, "cactus.name": "root"}
 print(cactus.resolve(d1, "x"))
 print(cactus.resolve(d1, "a"))
 d2 = {"cactus.next": d1, "b": 2}
@@ -11,3 +11,5 @@ print(cactus.flatten(d2))
 d3 = {"cactus.next": d2, "a": 23, "b": None}
 print(cactus.resolve(d3, "b"))
 print(cactus.flatten(d3))
+print(cactus.named(d3, "xyz"))
+print(cactus.named(d3, "root"))
