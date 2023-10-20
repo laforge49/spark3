@@ -1,6 +1,6 @@
 # A cactus is a tree of dict linked by the key "cactus.next".
 
-# Find the first matching key in a stack of dict.
+# Get the value of the first matching key in a stack of dict.
 def resolve(leaf, key):
   if leaf == None:
     return None
