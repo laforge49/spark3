@@ -1,4 +1,5 @@
 import gems.cactus as cactus
+import json
 print(cactus.resolve(None, "x"))
 d1 = {"a": 1, "cactus.name": "root"}
 print(cactus.resolve(d1, "x"))
@@ -14,3 +15,4 @@ print(cactus.flatten(d3))
 print(cactus.named(d3, "xyz"))
 print(cactus.named(d3, "root"))
 print(cactus.rewind(d3, 1))
+print(json.dumps(d3, indent=2))
