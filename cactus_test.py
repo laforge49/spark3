@@ -8,5 +8,6 @@ print(cactus.resolve(d2, "a"))
 print(cactus.flatten(None))
 print(cactus.flatten(d1))
 print(cactus.flatten(d2))
-d3 = {"cactus.next": d2, "a": 23}
+d3 = {"cactus.next": d2, "a": 23, "b": None}
+print(cactus.resolve(d3, "b"))
 print(cactus.flatten(d3))
