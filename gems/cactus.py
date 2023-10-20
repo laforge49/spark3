@@ -31,4 +31,13 @@ def named(leaf, name):
   if name == leaf.get("cactus.name"):
     return leaf
   return named(leaf.get("cactus.next"), name)
+
+# Rewind to a lower-level dict
+def rewind(leaf, level):
+  if leaf == None:
+    return None
+  if level == 0:
+    return leaf
+  next = leaf.get("cactus.next")
+  return rewind(next, level - 1)
   
