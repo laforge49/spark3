@@ -1,6 +1,12 @@
-# A cactus is a tree of dict linked by the key "cactus.next".
+'''
+A cactus is a tree of dict linked by the key "cactus.next".
+This can be used as a universal API that supports
+1. Transparent parameter passing to low-level functions.
+2. The use of default values and overrides.
+3. Run-time scoping of parameters and the ability to update them.
+'''
 
-# Get the value of the first matching key in a stack of dict.
+# Get the first matching key in a stack of dict.
 def resolve(leaf, key):
   if leaf == None:
     return None
