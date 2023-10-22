@@ -9,17 +9,29 @@ This can be used as a universal API that supports
 import copy
 import collections.abc
 
-def deepmunge(prior, revision):
+# Create a new jason structure from the prior structure by applying 
+# the changes in the revision structure. The changes are largely
+# replacements, though revisions to a list serve to extend the
+# prior list.
+#
+# If the revision is a dict, any items present in the prior dict
+# not present in the revision are added to the revision.
+#
+# If the revision and prior are both lists, the prior is inserted at the 
+# start of revision.
+def _deepmunge(prior, revision):
   if revision == "cactus.notFound":
     return copy.deepcopy(prior)
   if isinstance(revision, collections.abc.Mapping):
     if isinstance(prior, collections.abc.Mapping):
       for key, value in prior.items:
-        revision[key] = deepmunge(value, revision[key])
+        revision[key] = _deepmunge(value, revision[key])
         return revision
   elif isinstance(revision, list):
     if isinstance(prior, list):
-      return copy.deepcopy(prior).extend(revision)
+      for n in range(len(prior),-1,-1):
+        revision.insert(0,prior[n])
+      return revision
   else:
     return revision
   
