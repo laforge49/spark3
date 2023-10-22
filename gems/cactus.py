@@ -6,6 +6,21 @@ This can be used as a universal API that supports
 3. Run-time scoping of parameters and the ability to update them.
 '''
 
+import copy
+import collections.abc
+
+def deepmunge(prior, revision):
+  if revision == "cactus.notFound":
+    return copy.deepcopy(prior)
+  if isinstance(revision, collections.abc.Mapping):
+    if isinstance(prior, collections.abc.Mapping):
+      pass
+  elif isinstance(revision, list):
+    if isinstance(prior, list):
+      return copy.deepcopy(prior).extend(revision)
+  else:
+    return revision
+  
 # Get the first matching key in a stack of dict.
 def resolve(leaf, key):
   if leaf == None:
@@ -25,7 +40,7 @@ def gets(leaf, keys):
     j = j.get(key, None)
   return j
   
-def flatten_(leaf):
+def _flatten(leaf):
   if (leaf == None):
     return {}
   next = leaf.get("cactus.next")
@@ -35,7 +50,7 @@ def flatten_(leaf):
   
 # Create a dict with all the effective values of a stack of dict.
 def flatten(leaf):
-  base = flatten_(leaf)
+  base = _flatten(leaf)
   base.pop("cactus.next", None)
   base.pop("cactus.name", None)
   return base
