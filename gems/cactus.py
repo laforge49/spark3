@@ -25,7 +25,7 @@ def _deepmunge(prior, revision):
   if isinstance(revision, collections.abc.Mapping):
     if isinstance(prior, collections.abc.Mapping):
       for key, value in prior.items:
-        revision[key] = _deepmunge(value, revision[key])
+        revision[key] = _deepmunge(value, revision.get(key, "cactus.notFound"))
         return revision
   elif isinstance(revision, list):
     if isinstance(prior, list):
