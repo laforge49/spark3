@@ -14,7 +14,9 @@ def deepmunge(prior, revision):
     return copy.deepcopy(prior)
   if isinstance(revision, collections.abc.Mapping):
     if isinstance(prior, collections.abc.Mapping):
-      pass
+      for key, value in prior.items:
+        revision[key] = deepmunge(value, revision[key])
+        return revision
   elif isinstance(revision, list):
     if isinstance(prior, list):
       return copy.deepcopy(prior).extend(revision)
