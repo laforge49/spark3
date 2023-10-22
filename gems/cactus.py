@@ -29,8 +29,9 @@ def _deepmunge(prior, revision):
         return revision
   elif isinstance(revision, list):
     if isinstance(prior, list):
-      for n in range(len(prior),-1,-1):
-        revision.insert(0,prior[n])
+      if len(prior) > 0:
+        for n in range(len(prior) - 1, -1, -1):
+          revision.insert(0,prior[n])
       return revision
   else:
     return revision
