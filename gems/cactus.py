@@ -61,6 +61,14 @@ def _refine(level, keys, value):
     return _refine(next, keys, value)
   else:
     return value
+
+# Resolve the value identified by keys in the cactus stack.
+# When 2 lists are present for the same keys, the latest is
+# extended by the former. And when 2 dicts are present for the
+# same keys, the dicts are merged with the later items
+# overriding the former.
+def resolve(level, keys):
+  return _refine(level, keys, "cactus.notFound")
   
 """
 # Get the first matching key in a stack of dict.
