@@ -1,6 +1,14 @@
 import gems.cactus as cactus
 import json
 
+print(cactus._deep_munge(5, 6))
+print(cactus._deep_munge(5, "cactus.notFound"))
+print(cactus._deep_munge([1, 2], [2, 3]))
+print(cactus._deep_munge([], [2, 3]))
+print(cactus._deep_munge({"a": 1, "b": 2, "x": {"n": 22}}, {"b":3, "c":4}))
+
+
+"""
 print(cactus.resolve(None, "x"))
 d1 = {"a": 1, "cactus.name": "root"}
 print(cactus.resolve(d1, "x"))
@@ -27,4 +35,4 @@ try:
   print(cactus.gets(d3,["j", "w", "x"]))
 except AttributeError:
   print("oops")
-  
+"""

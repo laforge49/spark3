@@ -19,14 +19,14 @@ import collections.abc
 #
 # If the revision and prior are both lists, the prior is inserted at the 
 # start of revision.
-def _deepmunge(prior, revision):
+def _deep_munge(prior, revision):
   if revision == "cactus.notFound":
     return copy.deepcopy(prior)
   if isinstance(revision, collections.abc.Mapping):
     if isinstance(prior, collections.abc.Mapping):
-      for key, value in prior.items:
-        revision[key] = _deepmunge(value, revision.get(key, "cactus.notFound"))
-        return revision
+      for key, value in prior.items():
+        revision[key] = _deep_munge(value, revision.get(key, "cactus.notFound"))
+      return revision
   elif isinstance(revision, list):
     if isinstance(prior, list):
       if len(prior) > 0:
