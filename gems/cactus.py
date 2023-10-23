@@ -79,16 +79,6 @@ def resolve(leaf, key):
   if value == "cactus.notFound":
     return resolve(leaf.get("cactus.next"), key)
   return value
-  
-def gets(leaf, keys):
-  if len(keys) == 0:
-    return None
-  j = resolve(leaf, keys[0])
-  for key in keys[1:]:
-    if j == None:
-      return None
-    j = j.get(key, None)
-  return j
 """
   
 def _flatten(leaf):

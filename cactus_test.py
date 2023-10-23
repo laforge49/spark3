@@ -40,13 +40,4 @@ print(cactus.named(d3, "root"))
 print(cactus.rewind(d3, 1))
 d2.update({"j": {"w": 33}})
 print(json.dumps(d3, indent=2))
-print(cactus.gets(d3,[]))
-print(cactus.gets(d3,["j"]))
-print(cactus.gets(d3,["j", "w"]))
-print(cactus.gets(d3,["q", "w"]))
-print(cactus.gets(d3,["j", "r"]))
-try:
-  print(cactus.gets(d3,["j", "w", "x"]))
-except AttributeError:
-  print("oops")
 """
