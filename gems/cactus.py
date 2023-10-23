@@ -35,7 +35,9 @@ def _deep_munge(prior, revision):
       return revision
   else:
     return revision
-    
+
+# Returns the element identified by the key list
+# or "cactus.notFound"
 def _gets(json, keys):
   if len(keys) == 0:
     return json
