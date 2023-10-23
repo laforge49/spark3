@@ -35,6 +35,11 @@ def _deep_munge(prior, revision):
       return revision
   else:
     return revision
+    
+def _gets(json, keys):
+  if len(keys) == 0:
+    return json
+  return _gets(json.get(keys[0], "cactus.notFound"), keys[1:])
   
 # Get the first matching key in a stack of dict.
 def resolve(leaf, key):
