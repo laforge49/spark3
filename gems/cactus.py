@@ -74,9 +74,7 @@ def _flatten(leaf):
   if (leaf == None):
     return {}
   next = leaf.get("cactus.next")
-  base = flatten(next)
-  base.update(leaf)
-  return base
+  return _deep_munge(_flatten(next), leaf)
   
 # Create a dict with all the effective values of a stack of dict.
 def flatten(leaf):
