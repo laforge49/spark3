@@ -29,6 +29,13 @@ d2 = {"cactus.next": d1, "b": 2}
 d3 = {"cactus.next": d2, "a": 23, "b": None}
 print(json.dumps(d3, indent=2))
 
+print()
+print("4. TEST flatten")
+print("4.1", cactus.flatten(None))
+print("4.2", cactus.flatten(d1))
+print("4.3", cactus.flatten(d2))
+print("4.4", cactus.flatten(d3))
+
 """
 print(cactus.resolve(None, "x"))
 print(cactus.resolve(d1, "x"))
@@ -36,13 +43,6 @@ print(cactus.resolve(d1, "a"))
 print(cactus.resolve(d2, "a"))
 print(cactus.resolve(d3, "b"))
 """
-
-print()
-print("5. TEST flatten")
-print("5.1", cactus.flatten(None))
-print("5.2", cactus.flatten(d1))
-print("5.3", cactus.flatten(d2))
-print("5.4", cactus.flatten(d3))
 
 print()
 print("6. TEST named")
