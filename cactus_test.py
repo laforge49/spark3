@@ -1,6 +1,9 @@
 import gems.cactus as cactus
 import json
 
+def json_print(value):
+  print(json.dumps(value, indent=2))
+
 print(cactus._deep_munge(5, 6))
 print(cactus._deep_munge(5, "cactus.notFound"))
 print(cactus._deep_munge([1, 2], [2, 3]))
