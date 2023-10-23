@@ -36,13 +36,14 @@ print("4.2", cactus.flatten(d1))
 print("4.3", cactus.flatten(d2))
 print("4.4", cactus.flatten(d3))
 
-"""
-print(cactus.resolve(None, "x"))
-print(cactus.resolve(d1, "x"))
-print(cactus.resolve(d1, "a"))
-print(cactus.resolve(d2, "a"))
-print(cactus.resolve(d3, "b"))
-"""
+print()
+print("5. TEST resolves")
+print("5.1", cactus.resolves(None, ["x"]))
+print("5.2", cactus.resolves(d1, ["x"]))
+print("5.3", cactus.resolves(d1, ["a"]))
+print("5.4", cactus.resolves(d2, ["a"]))
+print("5.5", cactus.resolves(d3, ["a"]))
+print("5.6", cactus.resolves(d3, ["b"]))
 
 print()
 print("6. TEST named")

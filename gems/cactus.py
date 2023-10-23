@@ -67,19 +67,8 @@ def _refine(level, keys, value):
 # extended by the former. And when 2 dicts are present for the
 # same keys, the dicts are merged with the later items
 # overriding the former.
-def resolve(level, keys):
+def resolves(level, keys):
   return _refine(level, keys, "cactus.notFound")
-  
-"""
-# Get the first matching key in a stack of dict.
-def resolve(leaf, key):
-  if leaf == None:
-    return None
-  value = leaf.get(key, "cactus.notFound")
-  if value == "cactus.notFound":
-    return resolve(leaf.get("cactus.next"), key)
-  return value
-"""
   
 def _flatten(leaf):
   if (leaf == None):
