@@ -1,9 +1,10 @@
 '''
-A cactus is a tree of dict linked by the key "cactus.next".
+A cactus is a tree of dict (levels) linked by the key "cactus.next".
 This can be used as a universal API that supports
 1. Transparent parameter passing to low-level functions.
 2. The use of default values and overrides.
 3. Run-time scoping of parameters and the ability to update them.
+4. Support for multiple variations using common structures.
 '''
 
 import copy
@@ -36,13 +37,28 @@ def _deep_munge(prior, revision):
   else:
     return revision
 
-# Returns the element identified by the key list
+# Returns the element in a jason structure identified by the key list
 # or "cactus.notFound". Throws an AttributeError
 # when a key is used to fetch from a non-dict.
 def _gets(json, keys):
   if len(keys) == 0:
     return json
   return _gets(json.get(keys[0], "cactus.notFound"), keys[1:])
+
+def _resolves(level, keys, revision):
+  if level == None:
+    return revision
+  prior = _gets(level, keys)
+  next = level.get("cactus.next", None)
+  if prior == "cactus.notFound":
+    return _resolves(next, keys, revision)
+  revision = _deep_munge(prior, revision)
+  if isinstance(revision, collections.abc.Mapping):
+    return _resolves(next, keys, revision)
+  elif isinstance(revision, list):
+    return _resolves(next, keys, revision)
+  else:
+    return revision
   
 # Get the first matching key in a stack of dict.
 def resolve(leaf, key):
