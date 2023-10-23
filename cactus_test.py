@@ -4,12 +4,23 @@ import json
 def json_print(value):
   print(json.dumps(value, indent=2))
 
+print()
+print("TEST: _deep_munge")
 print(cactus._deep_munge(5, 6))
 print(cactus._deep_munge(5, "cactus.notFound"))
 print(cactus._deep_munge([1, 2], [2, 3]))
 print(cactus._deep_munge([], [2, 3]))
 print(cactus._deep_munge({"a": 1, "b": 2, "x": {"n": 22}}, {"b":3, "c":4}))
 
+print()
+print("TEST: _gets")
+print(cactus._gets(5, []))
+print(cactus._gets({"a": 1}, ["a"]))
+print(cactus._gets({"a": 1}, ["x"]))
+try:
+  print(cactus._gets(5, ["x"]))
+except AttributeError:
+  print("AttributeError")
 
 """
 print(cactus.resolve(None, "x"))
