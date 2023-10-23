@@ -62,6 +62,7 @@ def _refine(level, keys, value):
   else:
     return value
   
+"""
 # Get the first matching key in a stack of dict.
 def resolve(leaf, key):
   if leaf == None:
@@ -80,6 +81,7 @@ def gets(leaf, keys):
       return None
     j = j.get(key, None)
   return j
+"""
   
 def _flatten(leaf):
   if (leaf == None):
