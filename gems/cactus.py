@@ -99,4 +99,13 @@ def rewind(leaf, level):
     return leaf
   next = leaf.get("cactus.next")
   return rewind(next, level - 1)
-  
+    
+def put(json, keys, value):
+  key = keys[0]
+  keys = keys[1:]
+  if len(keys) == 0:
+    json[key] = value
+  else:
+    if key not in json:
+      json[key] = []
+    put(json[key], keys,value)
