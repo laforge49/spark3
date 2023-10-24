@@ -56,3 +56,6 @@ print("6.2", cactus.named(d3, "root"))
 print()
 print("7. TEST rewind")
 print("7.1", cactus.rewind(d3, 1))
+
+print()
+print("8. TEST puts")

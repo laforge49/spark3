@@ -100,7 +100,7 @@ def rewind(leaf, level):
   next = leaf.get("cactus.next")
   return rewind(next, level - 1)
     
-def put(json, keys, value):
+def puts(json, keys, value):
   key = keys[0]
   keys = keys[1:]
   if len(keys) == 0:
@@ -108,4 +108,4 @@ def put(json, keys, value):
   else:
     if key not in json:
       json[key] = []
-    put(json[key], keys,value)
+    puts(json[key], keys,value)
