@@ -84,6 +84,7 @@ json_print(d3)
   }
 }
 """
+
 print()
 print("4. TEST flatten")
 

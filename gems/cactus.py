@@ -78,7 +78,7 @@ def _flatten(leaf):
   
 # Create a dict with all the effective values of a stack of dict.
 def flatten(leaf):
-  base = _flatten(leaf)
+  base = _flatten(copy.deepcopy(leaf))
   base.pop("cactus.next", None)
   base.pop("cactus.name", None)
   return base
