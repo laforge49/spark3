@@ -54,9 +54,36 @@ print("3. TEST DATA")
 d1 = {"a": 1, "cactus.name": "root"}
 d2 = {"cactus.next": d1, "b": 2, "c": [2], "d": {"q": 8, "r": 64}}
 d3 = {"cactus.next": d2, "a": 23, "b": None, "c": [3], "d": {"q": 9, "s": 99}}
-print(json.dumps(d3, indent=2))
-# Output:
 
+print(json.dumps(d3, indent=2))
+"""
+ Output:
+{
+  "cactus.next": {
+    "cactus.next": {
+      "a": 1,
+      "cactus.name": "root"
+    },
+    "b": 2,
+    "c": [
+      2
+    ],
+    "d": {
+      "q": 8,
+      "r": 64
+    }
+  },
+  "a": 23,
+  "b": null,
+  "c": [
+    3
+  ],
+  "d": {
+    "q": 9,
+    "s": 99
+  }
+}
+"""
 print()
 print("4. TEST flatten")
 print("4.1", cactus.flatten(None))
