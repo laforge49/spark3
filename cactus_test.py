@@ -132,10 +132,14 @@ print("5.6", cactus.resolves(d3, ["b"]))
 
 print("5.7", cactus.resolves(d3, ["c"]))
 # Output:
+# 5.7 [2, 3]
+
 print("5.8", cactus.resolves(d3, ["d"]))
 # Output:
+# 5.8 {'q': 9, 's': 99, 'r': 64}
 print("5.9", cactus.resolves(d3, ["d", "q"]))
 # Output:
+# 5.9 9
 
 print()
 print("6. TEST named")
