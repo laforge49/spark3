@@ -108,21 +108,33 @@ print("5. TEST resolves")
 
 print("5.1", cactus.resolves(None, ["x"]))
 # Output:
+# 5.1 cactus.notFound
+
 print("5.2", cactus.resolves(d1, ["x"]))
 # Output:
+# 5.2 cactus.notFound
+
 print("5.3", cactus.resolves(d1, ["a"]))
 # Output:
+# 5.3 1
+
 print("5.4", cactus.resolves(d2, ["a"]))
 # Output:
+# 5.4 1
+
 print("5.5", cactus.resolves(d3, ["a"]))
 # Output:
+# 5.5 23
+
 print("5.6", cactus.resolves(d3, ["b"]))
 # Output:
-print("5.6", cactus.resolves(d3, ["c"]))
+# 5.6 None
+
+print("5.7", cactus.resolves(d3, ["c"]))
 # Output:
-print("5.7", cactus.resolves(d3, ["d"]))
+print("5.8", cactus.resolves(d3, ["d"]))
 # Output:
-print("5.8", cactus.resolves(d3, ["d", "q"]))
+print("5.9", cactus.resolves(d3, ["d", "q"]))
 # Output:
 
 print()
