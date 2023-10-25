@@ -144,10 +144,14 @@ print("5.9", cactus.resolves(d3, ["d", "q"]))
 
 print()
 print("6. TEST named")
+
 print("6.1", cactus.named(d3, "xyz"))
 # Output:
+# 6.1 None
+
 print("6.2", cactus.named(d3, "root"))
 # Output:
+# 6.2 {'a': 1, 'cactus.name': 'root'}
 
 print()
 print("7. TEST rewind")
