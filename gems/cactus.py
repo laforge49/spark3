@@ -100,16 +100,17 @@ def rewind(leaf, level):
   next = leaf.get("cactus.next")
   return rewind(next, level - 1)
     
-def puts(json, keys, value):
+# Update a leaf with a value at a given keys path
+def puts(leaf, keys, value):
   key = keys[0]
   keys = keys[1:]
   if len(keys) == 0:
     value = copy.deepcopy(value)
-    if key not in json:
-      json[key] = value
+    if key not in leaf:
+      leaf[key] = value
     else:
-      json[key] = _deep_munge(json[key], value)
+      leaf[key] = _deep_munge(leaf[key], value)
   else:
-    if key not in json:
-      json[key] = []
-    puts(json[key], keys,value)
+    if key not in leaf:
+      leaf[key] = []
+    puts(leaf[key], keys,value)
