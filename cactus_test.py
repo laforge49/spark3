@@ -59,3 +59,10 @@ print("7.1", cactus.rewind(d3, 1))
 
 print()
 print("8. TEST puts")
+d4 = {}
+cactus.puts(d4, ["a"], 1)
+print("8.1", d4)
+cactus.puts(d4, ["b"], {"c": 2})
+print("8.2", d4)
+cactus.puts(d4, ["b", "d"], 39)
+print("8.3", d4)
