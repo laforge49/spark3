@@ -155,31 +155,46 @@ print("6.2", cactus.named(d3, "root"))
 
 print()
 print("7. TEST rewind")
+
 print("7.1", cactus.rewind(d3, 1))
 # Output:
+# 7.1 {'cactus.next': {'a': 1, 'cactus.name': 'root'}, 'b': 2, 'c': [2], 'd': {'q': 8, 'r': 64}}
 
 print()
 print("8. TEST puts")
-# Output:
 d4 = {}
+
 cactus.puts(d4, ["a"], 1)
 print("8.1", d4)
 # Output:
+# 8.1 {'a': 1}
+
 cactus.puts(d4, ["b"], {"c": 2})
 print("8.2", d4)
 # Output:
+# 8.2 {'a': 1, 'b': {'c': 2}}
+
 cactus.puts(d4, ["b", "d"], 39)
 print("8.3", d4)
 # Output:
+# 8.3 {'a': 1, 'b': {'c': 2, 'd': 39}}
+
 cactus.puts(d3, ["a"], 2)
 print("8.4", d3)
 # Output:
+# 8.4 {'cactus.next': {'cactus.next': {'a': 1, 'cactus.name': 'root'}, 'b': 2, 'c': [2], 'd': {'q': 8, 'r': 64}}, 'a': 2, 'b': None, 'c': [3], 'd': {'q': 9, 's': 99}}
+
 cactus.puts(d3, ["g"], 21)
 print("8.5", d3)
 # Output:
+# 8.5 {'cactus.next': {'cactus.next': {'a': 1, 'cactus.name': 'root'}, 'b': 2, 'c': [2], 'd': {'q': 8, 'r': 64}}, 'a': 2, 'b': None, 'c': [3], 'd': {'q': 9, 's': 99}, 'g': 21}
+
 cactus.puts(d3, ["c"], [40])
 print("8.6", d3)
 # Output:
+# 8.6 {'cactus.next': {'cactus.next': {'a': 1, 'cactus.name': 'root'}, 'b': 2, 'c': [2], 'd': {'q': 8, 'r': 64}}, 'a': 2, 'b': None, 'c': [3, 40], 'd': {'q': 9, 's': 99}, 'g': 21}
+
 cactus.puts(d3, ["d", "n"], 5)
 print("8.7", d3)
 # Output:
+# 8.7 {'cactus.next': {'cactus.next': {'a': 1, 'cactus.name': 'root'}, 'b': 2, 'c': [2], 'd': {'q': 8, 'r': 64}}, 'a': 2, 'b': None, 'c': [3, 40], 'd': {'q': 9, 's': 99, 'n': 5}, 'g': 21}
