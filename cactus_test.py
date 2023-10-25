@@ -86,17 +86,26 @@ json_print(d3)
 """
 print()
 print("4. TEST flatten")
+
 print("4.1", cactus.flatten(None))
 # Output:
+# 4.1 {}
+
 print("4.2", cactus.flatten(d1))
 # Output:
+# 4.2 {'a': 1}
+
 print("4.3", cactus.flatten(d2))
 # Output:
+# 4.3 {'b': 2, 'c': [2], 'd': {'q': 8, 'r': 64}, 'a': 1}
+
 print("4.4", cactus.flatten(d3))
 # Output:
+# 4.4 {'a': 23, 'b': None, 'c': [2, 3], 'd': {'q': 9, 's': 99, 'r': 64}}
 
 print()
 print("5. TEST resolves")
+
 print("5.1", cactus.resolves(None, ["x"]))
 # Output:
 print("5.2", cactus.resolves(d1, ["x"]))
