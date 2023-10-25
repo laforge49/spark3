@@ -180,21 +180,21 @@ print("8.3", d4)
 # 8.3 {'a': 1, 'b': {'c': 2, 'd': 39}}
 
 cactus.puts(d3, ["a"], 2)
-print("8.4", d3)
+print("8.4", cactus.flatten(d3))
 # Output:
-# 8.4 {'cactus.next': {'cactus.next': {'a': 1, 'cactus.name': 'root'}, 'b': 2, 'c': [2], 'd': {'q': 8, 'r': 64}}, 'a': 2, 'b': None, 'c': [3], 'd': {'q': 9, 's': 99}}
+# 8.4 {'a': 2, 'b': None, 'c': [2, 3], 'd': {'q': 9, 's': 99, 'r': 64}}
 
 cactus.puts(d3, ["g"], 21)
-print("8.5", d3)
+print("8.5", cactus.flatten(d3))
 # Output:
-# 8.5 {'cactus.next': {'cactus.next': {'a': 1, 'cactus.name': 'root'}, 'b': 2, 'c': [2], 'd': {'q': 8, 'r': 64}}, 'a': 2, 'b': None, 'c': [3], 'd': {'q': 9, 's': 99}, 'g': 21}
+# 8.5 {'a': 2, 'b': None, 'c': [2, 3], 'd': {'q': 9, 's': 99, 'r': 64}, 'g': 21}
 
 cactus.puts(d3, ["c"], [40])
-print("8.6", d3)
+print("8.6", cactus.flatten(d3))
 # Output:
-# 8.6 {'cactus.next': {'cactus.next': {'a': 1, 'cactus.name': 'root'}, 'b': 2, 'c': [2], 'd': {'q': 8, 'r': 64}}, 'a': 2, 'b': None, 'c': [3, 40], 'd': {'q': 9, 's': 99}, 'g': 21}
+# 8.6 {'a': 2, 'b': None, 'c': [2, 3, 40], 'd': {'q': 9, 's': 99, 'r': 64}, 'g': 21}
 
 cactus.puts(d3, ["d", "n"], 5)
-print("8.7", d3)
+print("8.7", cactus.flatten(d3))
 # Output:
-# 8.7 {'cactus.next': {'cactus.next': {'a': 1, 'cactus.name': 'root'}, 'b': 2, 'c': [2], 'd': {'q': 8, 'r': 64}}, 'a': 2, 'b': None, 'c': [3, 40], 'd': {'q': 9, 's': 99, 'n': 5}, 'g': 21}
+# 8.7 {'a': 2, 'b': None, 'c': [2, 3, 40], 'd': {'q': 9, 's': 99, 'n': 5, 'r': 64}, 'g': 21}
