@@ -104,7 +104,11 @@ def puts(json, keys, value):
   key = keys[0]
   keys = keys[1:]
   if len(keys) == 0:
-    json[key] = value
+    value = copy.deepcopy(value)
+    if key not in json:
+      json[key] = value
+    else:
+      json[key] = _deep_munge(json[key], value)
   else:
     if key not in json:
       json[key] = []
