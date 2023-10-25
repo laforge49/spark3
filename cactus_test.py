@@ -29,17 +29,25 @@ print("1.5", cactus._deep_munge({"a": 1, "b": 2, "x": {"n": 22}}, {"b":3, "c":4}
 
 print()
 print("2. TEST _gets")
+
 print("2.1", cactus._gets(5, []))
 # Output:
+# 2.1 5
+
 print("2.2", cactus._gets({"a": 1}, ["a"]))
 # Output:
+# 2.2 1
+
 print("2.3", cactus._gets({"a": 1}, ["x"]))
 # Output:
+# 2.3 cactus.notFound
+
 try:
   print("2.4", cactus._gets(5, ["x"]))
 except AttributeError:
   print("2.4 Attribute Error")
 # Output:
+# 2.4 Attribute Error
 
 print()
 print("3. TEST DATA")
